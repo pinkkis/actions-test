@@ -25,30 +25,13 @@ jobs:
       env:
         CI: true
     - name: npm test
+      if: github.event == 'pull_request'
       run:
         npm test
-      if: github.event == 'pull_request'
       env:
         CI: true
-    - name: Stash build artifact
+    - name: npm gh-pages deploy
       if: github.event == 'push'
-      uses: actions/upload-artifact@v1
-      with:
-        name: dist
-        path: dist
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    if: success() && github.event_name == 'push'
-    steps:
-      - name: Deploy to GH Pages
-        uses: actions/download-artifact@v1
-        with:
-          name: dist
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v2.5.0
-        env:
-          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./dist
+      run: |
+        touch ./dist/.nojekyll
+        npm run ghpublish -- --repo https://${{secrets.PERSONAL_TOKEN}}@github.com/${{GITHUB_REPOSITORY}}.git -m "Automated Deploy started by ${{GITHUB_ACTOR}}"
