@@ -31,8 +31,8 @@ jobs:
       env:
         CI: true
     - name: Stash build artifact
-      uses: actions/upload-artifact@v1
       if: github.event == 'pull'
+      uses: actions/upload-artifact@v1
       with:
         name: dist
         path: dist
