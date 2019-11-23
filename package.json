@@ -6,7 +6,7 @@
   "scripts": {
     "build": "gulp",
     "test": "echo \"Fake Tests passed\" && exit 0",
-    "ghpublish": "gh-pages -d dist --no-push"
+    "ghpublish": "gh-pages -d dist --silent"
   },
   "repository": {
     "type": "git",
