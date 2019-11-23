@@ -34,4 +34,4 @@ jobs:
       if: github.event == 'push'
       run: |
         touch ./dist/.nojekyll
-        npm run ghpublish -- --repo https://${{secrets.PERSONAL_TOKEN}}@github.com/${{GITHUB_REPOSITORY}}.git -m "Automated Deploy started by ${{GITHUB_ACTOR}}"
+        npm run ghpublish -- --repo https://${{secrets.PERSONAL_TOKEN}}@github.com/$GITHUB_REPOSITORY.git -m "Automated Deploy started by $GITHUB_ACTOR"
