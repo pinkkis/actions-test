@@ -25,13 +25,13 @@ jobs:
       env:
         CI: true
     - name: npm test
-      if: github.event == 'pull_request'
       run:
         npm test
+      if: github.event == 'pull_request'
       env:
         CI: true
     - name: npm gh-pages deploy
-      if: github.event == 'push'
       run: |
         touch ./dist/.nojekyll
         npm run ghpublish -- --repo https://${{secrets.PERSONAL_TOKEN}}@github.com/$GITHUB_REPOSITORY.git -m "Automated Deploy started by $GITHUB_ACTOR"
+      if: github.event == 'push'
