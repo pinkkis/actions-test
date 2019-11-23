@@ -30,7 +30,7 @@ jobs:
       if: github.event == 'pull_request'
       env:
         CI: true
-    - name: Upload math result for job 1
+    - name: Stash build artifact
       uses: actions/upload-artifact@v1
       if: github.event == 'pull_request'
       with:
