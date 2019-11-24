@@ -32,7 +32,7 @@ jobs:
     - name: npm gh-pages deploy
       if: github.event_name == 'push'
       run: |
-        git config user.name ${{GITHUB_ACTOR}}
-        git config user.email ${{GITHUB_ACTOR}}@pinkkis.com
+        git config user.name github_action
+        git config user.email github_action@github.com
         touch ./dist/.nojekyll
         npm run ghpublish -- --repo https://${{secrets.PERSONAL_TOKEN}}@github.com/$GITHUB_REPOSITORY.git -m "Automated Deploy started by $GITHUB_ACTOR"
