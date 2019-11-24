@@ -33,7 +33,7 @@ jobs:
       if: github.event_name == 'push'
       run: |
         cd dist
-        touch ./dist/.nojekyll
+        touch .nojekyll
         git init
         git config user.name github_action
         git config user.email github_action@github.com
