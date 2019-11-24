@@ -32,6 +32,8 @@ jobs:
         CI: true
     - name: npm gh-pages deploy
       run: |
+        git config --global user.name ${GITHUB_ACTOR}
+        git config --global user.email ${GITHUB_ACTOR}@pinkkis.com
         touch ./dist/.nojekyll
         npm run ghpublish -- --repo https://${{secrets.PERSONAL_TOKEN}}@github.com/$GITHUB_REPOSITORY.git -m "Automated Deploy started by $GITHUB_ACTOR"
       if: github.event_name == 'push'
