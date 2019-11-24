@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp",
-    "test": "echo \"Fake Tests passed\" && exit 0",
+    "test": "echo \"Fake Tests passed\" && exit 1",
     "ghpublish": "gh-pages -d dist"
   },
   "repository": {
