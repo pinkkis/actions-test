@@ -21,7 +21,6 @@
   "homepage": "https://github.com/pinkkis/actions-test#readme",
   "devDependencies": {
     "esm": "^3.2.25",
-    "gh-pages": "^2.1.1",
     "gulp": "^4.0.2"
   }
 }
